@@ -9,6 +9,23 @@ Class {
 }
 
 { #category : 'layout' }
+ImdbFilmListPresenter >> addFilm [
+
+| presenter windowPresenter |
+presenter := ImdbFilmPresenter newApplication: self application.
+windowPresenter := presenter openModal.
+windowPresenter isOk
+ifFalse: [ ^ self ].
+ImdbFilm
+addFilm:
+(ImdbFilm new
+name: presenter name;
+director: presenter director;
+year: presenter year).
+self updatePresenter
+]
+
+{ #category : 'layout' }
 ImdbFilmListPresenter >> defaultLayout [
 
 ^ SpBoxLayout newTopToBottom
@@ -24,6 +41,21 @@ filmList := self newTable
 	addColumn: (SpStringTableColumn title: 'Director' evaluated: #director);
 	addColumn: (SpStringTableColumn title: 'Year' evaluated: #year);
 	yourself 
+]
+
+{ #category : 'layout' }
+ImdbFilmListPresenter >> initializeWindow: aWindowPresenter [ 
+
+aWindowPresenter
+title: 'Mini IMDB';
+initialExtent: 600@400;
+toolbar: (self newToolbar
+add: (self newToolbarButton
+label: 'Add film' ;
+icon: (self iconNamed: #smallAdd);
+action: [ self addFilm ];
+yourself);
+yourself)
 ]
 
 { #category : 'layout' }
