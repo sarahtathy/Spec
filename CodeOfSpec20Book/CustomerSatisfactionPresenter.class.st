@@ -59,5 +59,6 @@ icon: (self iconNamed: #thumbsDown).
 
 { #category : 'initialization' }
 CustomerSatisfactionPresenter >> initializeWindow: aWindowPresenter [
-aWindowPresenter title: 'Customer Satisfaction Survey'
+aWindowPresenter title: 'Customer Satisfaction Survey'; 
+initialExtent: 400@100
 ]
