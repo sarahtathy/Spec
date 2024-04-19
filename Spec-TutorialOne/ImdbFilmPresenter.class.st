@@ -11,6 +11,12 @@ Class {
 }
 
 { #category : 'layout' }
+ImdbFilmPresenter >> defaultInputPort [
+
+^ self inputModelPort
+]
+
+{ #category : 'layout' }
 ImdbFilmPresenter >> defaultLayout [ 
 
 "^ SpGridLayout new
@@ -42,6 +48,13 @@ ImdbFilmPresenter >> director [
 ]
 
 { #category : 'layout' }
+ImdbFilmPresenter >> editable: aBoolean [
+nameText editable: aBoolean.
+directorText editable: aBoolean.
+yearNumber editable: aBoolean
+]
+
+{ #category : 'layout' }
 ImdbFilmPresenter >> initializeDialogWindow: aDialogPresenter [
 aDialogPresenter centered.
 aDialogPresenter
@@ -69,9 +82,23 @@ aWindowPresenter
 ]
 
 { #category : 'layout' }
+ImdbFilmPresenter >> inputModelPort [
+
+^ SpModelPort newPresenter: self
+]
+
+{ #category : 'layout' }
 ImdbFilmPresenter >> name [ 
 
 ^nameText text 
+]
+
+{ #category : 'layout' }
+ImdbFilmPresenter >> setModel: aFilm [
+
+nameText text: aFilm name.
+directorText text: aFilm director.
+yearNumber number: aFilm year.
 ]
 
 { #category : 'layout' }

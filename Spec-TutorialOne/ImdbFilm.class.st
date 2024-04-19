@@ -14,6 +14,22 @@ Class {
 }
 
 { #category : 'accessing' }
+ImdbFilm class >> ET [ 
+
+^  self new 
+	name: 'E.T.';
+	director: 'Steven Spielberg';
+	year: '1982';
+	yourself 
+]
+
+{ #category : 'accessing' }
+ImdbFilm class >> addET [ 
+
+films add: self ET 
+]
+
+{ #category : 'accessing' }
 ImdbFilm class >> addFilm: aFilm [ 
 
 films add: aFilm 
@@ -22,6 +38,12 @@ films add: aFilm
 { #category : 'accessing' }
 ImdbFilm class >> films [ 
 ^ films ifNil: [ films := OrderedCollection new ] 
+]
+
+{ #category : 'accessing' }
+ImdbFilm class >> reset [ 
+
+films := OrderedCollection new 
 ]
 
 { #category : 'accessing' }
