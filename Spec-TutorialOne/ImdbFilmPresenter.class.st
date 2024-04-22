@@ -37,7 +37,7 @@ add: 'Year'; add: yearNumber ]
 	builder
 		beColumnNotHomogeneous;
 		column: 2 expand: true;
-		add: 'nameLabel'; add: nameText; nextRow;
+		add: nameLabel; add: nameText; nextRow;
 		add: 'Director'; add: directorText; nextRow;
 		add: 'Year'; add: yearNumber ]
 
@@ -97,6 +97,18 @@ ImdbFilmPresenter >> inputModelPort [
 ImdbFilmPresenter >> name [ 
 
 ^nameText text 
+]
+
+{ #category : 'layout' }
+ImdbFilmPresenter >> nameLabel [
+
+^ nameLabel 
+]
+
+{ #category : 'layout' }
+ImdbFilmPresenter >> nameLabel: aNameLabel [
+
+nameLabel := aNameLabel 
 ]
 
 { #category : 'layout' }
