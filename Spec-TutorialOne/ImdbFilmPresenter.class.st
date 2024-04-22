@@ -1,10 +1,12 @@
 Class {
 	#name : 'ImdbFilmPresenter',
 	#superclass : 'SpPresenter',
+	#classTraits : '{} + TraitedClass',
 	#instVars : [
 		'nameText',
 		'directorText',
-		'yearNumber'
+		'yearNumber',
+		'nameLabel'
 	],
 	#category : 'Spec-TutorialOne',
 	#package : 'Spec-TutorialOne'
@@ -35,7 +37,7 @@ add: 'Year'; add: yearNumber ]
 builder
 beColumnNotHomogeneous;
 column: 2 expand: true;
-add: 'Name'; add: nameText; nextRow;
+add: 'nameLabel'; add: nameText; nextRow;
 add: 'Director'; add: directorText; nextRow;
 add: 'Year'; add: yearNumber ]
 
@@ -66,6 +68,10 @@ close ].
 { #category : 'layout' }
 ImdbFilmPresenter >> initializePresenters [
 
+nameLabel := self newLabel 
+	label: 'Name';
+	addStyle: 'customLabel';
+	yourself.
 nameText := self newTextInput.
 directorText := self newTextInput.
 yearNumber := self newNumberInput
