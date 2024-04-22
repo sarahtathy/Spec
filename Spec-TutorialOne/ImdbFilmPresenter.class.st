@@ -34,12 +34,12 @@ add: 'Year'; add: yearNumber ]
 "
 
 ^ SpGridLayout build: [ :builder |
-builder
-beColumnNotHomogeneous;
-column: 2 expand: true;
-add: 'nameLabel'; add: nameText; nextRow;
-add: 'Director'; add: directorText; nextRow;
-add: 'Year'; add: yearNumber ]
+	builder
+		beColumnNotHomogeneous;
+		column: 2 expand: true;
+		add: 'nameLabel'; add: nameText; nextRow;
+		add: 'Director'; add: directorText; nextRow;
+		add: 'Year'; add: yearNumber ]
 
 ]
 
@@ -102,9 +102,13 @@ ImdbFilmPresenter >> name [
 { #category : 'layout' }
 ImdbFilmPresenter >> setModel: aFilm [
 
-nameText text: aFilm name.
+aFilm ifNil: [ImdbFilm new
+name: 'E.T.';
+director: 'Steven Spielberg';
+year: '1982'] ifNotNil: [nameText text: aFilm name.
 directorText text: aFilm director.
-yearNumber number: aFilm year.
+yearNumber number: aFilm year].
+
 ]
 
 { #category : 'layout' }

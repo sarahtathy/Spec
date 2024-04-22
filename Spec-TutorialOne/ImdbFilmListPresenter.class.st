@@ -106,6 +106,14 @@ yourself
 ]
 
 { #category : 'layout' }
+ImdbFilmListPresenter >> listOnlyLayout [
+
+^ SpBoxLayout newTopToBottom
+	add: filmList;
+	yourself
+]
+
+{ #category : 'layout' }
 ImdbFilmListPresenter >> updatePresenter [ 
 
 filmList items: ImdbFilm films 

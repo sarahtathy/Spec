@@ -15,7 +15,5 @@ self addStyleSheetFromString: self customStyleSheet.
 { #category : 'as yet unclassified' }
 ImdbConfiguration >> customStyleSheet [
 
-^ '
-.application [
-.customLabel [ Font { #color: #red } ] ]'
+^ ' .application [ .customLabel [ Font { #color: #red } ] ]'
 ]
